@@ -1,22 +1,15 @@
 import re
 
 
-user_sentence = input("Please enter your sentence > ")
+user_input = input("Please enter your word or sentence > ")
+stripped = re.sub('[^A-Za-z]', '', user_input).lower()
 
-stripped_sentence = re.sub('[^A-Za-z]', '', user_sentence).lower()
+backwards = ""
 
-backwards = []
-count = 0
-count_back = -1
+for count in range(len(stripped)):
+    backwards = backwards + stripped[-1 - count]
 
-while count < len(stripped_sentence):
-    backwards.append(stripped_sentence[count_back])
-    count_back -= 1
-    count += 1
-
-backwards_sentence = "".join(backwards)
-
-if stripped_sentence == backwards_sentence:
+if stripped == backwards:
     print("Yes it is a palindrome!")
 else:
     print("No it is not a palindrome!")
