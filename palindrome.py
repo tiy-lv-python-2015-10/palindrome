@@ -16,9 +16,6 @@ while count < len(stripped_sentence):
 
 backwards_sentence = "".join(backwards)
 
-print(stripped_sentence)
-print(backwards_sentence)
-
 if stripped_sentence == backwards_sentence:
     print("Yes it is a palindrome!")
 else:
