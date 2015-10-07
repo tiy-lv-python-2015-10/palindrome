@@ -25,3 +25,11 @@ def palindrome_test(phrase):
         print("it is not a palindrome...")
 test = space_remover(phrase.lower())
 palindrome_test(test)
+
+
+def easy_way(phrase):
+    if phrase == phrase[::-1]:
+        print("it is a palindrome!")
+    else:
+        print("it is not a palindrom...")
+easy_way(test)
