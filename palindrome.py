@@ -1,28 +1,18 @@
 import re
-user_input = str(input("Please enter some text to check if it is a palindrome: ")).lower()
-re.sub( r'[^A-Za-z]', '', user_input)
-user_input_length = len(user_input)
-counter = 0
-user_input_reverse = ""
-
-while counter >= user_input_length*-1:
-    if counter == 0:
-        user_input_reverse = user_input_reverse+user_input[-1:]
-        counter = counter - 1
-    elif counter == -1:
-        counter = counter - 1
-    else:
-        user_input_reverse = user_input_reverse+user_input[counter: counter+1]
-        counter = counter - 1
-
-input_match = re.match(str(user_input), str(user_input_reverse))
-reg_ex_match = str(input_match)
-y = reg_ex_match[24:34]
-y = str(y)
-x = (y + " )")
-q = str(user_input_length)
-z = ("span=(0, "+q+" )")
-if z==x:
-    print("thats a palindrome!")
-else:
-    print("nope that is not a palindrome!")
+def main_program():
+    user_input = str(input("Please enter some text to check if it is a palindrome: ")).lower()
+    re.sub( r'[^A-Za-z]', '', user_input)
+    user_input_length = len(user_input)
+    user_input_reverse = ""
+    for counter in range(0, (user_input_length*-1)-1,-1):
+        if counter == 0:
+            user_input_reverse = user_input_reverse+user_input[-1:]
+        elif counter == -1:
+            continue
+        else:
+            user_input_reverse = user_input_reverse+user_input[counter: counter+1]
+    is_palindrome_test = str(str(re.match(str(user_input), str(user_input_reverse)))[24:34])#the match reg ex function is applied to both the actual text and the reversed text and it compares the two and returns a math object based off of the result# after i recieve the math object i take out the span part of the object which looks similar to this <_sre.SRE_Match object; span=(4, 11), match='message'>
+    theoretical_math_piece = (is_palindrome_test + " )")#im placing that span part i took out into a properly formatted span part
+    actual_math_piece = ("span=(0, "+str(user_input_length)+" )")#this is the span part that should be generated if text is palandromic
+    print("thats a palindrome!") if actual_math_piece==theoretical_math_piece else print("nope that is not a palindrome!")
+main_program()
