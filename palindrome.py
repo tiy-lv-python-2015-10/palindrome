@@ -1,16 +1,16 @@
 import re
 
 
-#reverses a string
 def backwards(statement):
+    """Reverses a string"""
     backwards = ""
 
     for count in range(len(statement)):
         backwards = backwards + statement[-1 - count]
     return backwards
 
-#checks to see if a string is a palindrome
 def is_palindrome(statement):
+    """Checks to see if a string is a palindrome"""
     if len(statement) <= 1:
         return True
     elif statement[0] == statement[-1]:
