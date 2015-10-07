@@ -2,10 +2,12 @@ import re
 phrase = input("Enter text here: ")
 
 def space_remover(phrase):
+    """ Removes the spaces from the string"""
     return re.sub(r'[^A-Za-z]', "", phrase)
 
 
 def palindrome_test(phrase):
+    """ Goes through and reads the string to see if it is read the same way forwards and back"""
     print("Reading front to back...")
     counter = 0
     for letter in phrase:
@@ -28,6 +30,7 @@ palindrome_test(test)
 
 
 def easy_way(phrase):
+    """flips the string backwards and compares it to the original"""
     if phrase == phrase[::-1]:
         print("it is a palindrome!")
     else:
